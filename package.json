@@ -1,5 +1,5 @@
 {
-  "name": "ai-resume-analyser",
+  "name": "cvify",
   "private": true,
   "type": "module",
   "scripts": {
