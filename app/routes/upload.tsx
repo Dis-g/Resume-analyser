@@ -56,14 +56,7 @@ const Upload = () => {
             ? feedback.message.content
             : feedback.message.content[0].text;
 
-        const cleanedJson = feedbackText.replace(/```json|```/g, "").trim();
-
-        try {
-            data.feedback = JSON.parse(cleanedJson);
-        } catch (e) {
-            console.error("Failed to parse AI response:", cleanedJson);
-            return setStatusText('Error: AI returned invalid data format');
-        }
+        data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
         console.log(data);
